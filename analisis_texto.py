@@ -89,6 +89,26 @@ plt.figure(figsize=(15, 10))
 plt.imshow(wordcloud_mana, interpolation='bilinear')
 plt.axis('off')  # Turn off the axis
 plt.show()
+#%%
+# Cargar la imagen
+imagen = plt.imread('C:/Users/nlenardon/Downloads/redonditos.png')  # Reemplaza 'ruta/a/tu/imagen.jpg' con la ruta a tu imagen
+
+# Crear una figura de Matplotlib
+plt.figure(figsize=(15, 10))
+
+# Colocar la imagen en el margen superior izquierdo
+plt.figimage(imagen, xo=0, yo=plt.gca().get_window_extent().height - imagen.shape[0]-100)
+
+# Crear el WordCloud
+wordcloud_mana = WordCloud(width=800, height=400, background_color='white').generate(' '.join(all_tokens_mana))
+
+# Mostrar el WordCloud
+plt.imshow(wordcloud_mana, interpolation='bilinear')
+plt.axis('off')  # Ocultar los ejes
+
+# Mostrar la figura
+plt.show()
+
 #%%CLASIFICACION
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
